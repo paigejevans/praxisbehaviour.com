@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How It Works | Praxis Behaviour.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0D1F4C; --navy-light: #162a60;
+      --gold: #C9A84C; --gold-light: #dfc070;
+      --cream: #FAF8F4; --text: #1a1a1a;
+      --muted: #6b6b6b; --border: rgba(13,31,76,0.1);
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--cream); color: var(--text); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; height: 72px; background: rgba(250,248,244,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--navy); text-decoration: none; letter-spacing: 0.03em; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 13px; font-weight: 400; color: var(--navy); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.7; transition: opacity 0.2s; }
+    .nav-links a:hover { opacity: 1; }
+    .nav-cta { opacity: 1 !important; color: var(--cream) !important; background: var(--navy); padding: 10px 22px; border-radius: 2px; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--navy-light) !important; }
+
+    /* PAGE HERO */
+    .page-hero { padding: 160px 60px 80px; border-bottom: 1px solid var(--border); }
+    .page-hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; }
+    .page-eyebrow { font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+    .page-headline { font-family: var(--font-display); font-size: clamp(44px,5vw,68px); font-weight: 500; line-height: 1.08; color: var(--navy); }
+    .page-headline em { font-style: italic; color: var(--gold); }
+    .page-intro { font-size: 16px; font-weight: 300; color: var(--muted); line-height: 1.85; align-self: end; padding-bottom: 6px; }
+    .page-intro strong { color: var(--navy); font-weight: 500; }
+
+    /* PROCESS STEPS */
+    .process-section { padding: 80px 60px; background: white; }
+    .process-inner { max-width: 1100px; margin: 0 auto; }
+    .section-eyebrow { font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .section-heading { font-family: var(--font-display); font-size: clamp(36px,4vw,56px); font-weight: 500; color: var(--navy); line-height: 1.1; margin-bottom: 64px; }
+    .section-heading em { font-style: italic; }
+
+    .steps { display: flex; flex-direction: column; gap: 0; }
+    .step { display: grid; grid-template-columns: 80px 1fr 1fr; gap: 48px; align-items: start; padding: 48px 0; border-top: 1px solid var(--border); }
+    .step:last-child { border-bottom: 1px solid var(--border); }
+    .step-num { font-family: var(--font-display); font-size: 52px; font-weight: 400; color: var(--gold); opacity: 0.35; line-height: 1; padding-top: 4px; }
+    .step-left {}
+    .step-title { font-family: var(--font-display); font-size: 28px; font-weight: 500; color: var(--navy); line-height: 1.2; margin-bottom: 14px; }
+    .step-title em { font-style: italic; }
+    .step-duration { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(201,168,76,0.35); padding: 4px 10px; border-radius: 2px; margin-bottom: 18px; }
+    .step-body { font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.85; }
+    .step-body p { margin-bottom: 14px; }
+    .step-body p:last-child { margin-bottom: 0; }
+    .step-body strong { color: var(--navy); font-weight: 500; }
+    .step-detail { background: var(--cream); padding: 28px 32px; border-left: 3px solid var(--gold); align-self: start; margin-top: 4px; }
+    .step-detail-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .step-detail-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .step-detail-list li { font-size: 13px; font-weight: 300; color: var(--text); line-height: 1.6; padding-left: 16px; position: relative; }
+    .step-detail-list li::before { content: ''; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; background: var(--gold); border-radius: 50%; }
+
+    /* WHAT YOU GET */
+    .outcome-section { padding: 80px 60px; background: var(--cream); border-top: 1px solid var(--border); }
+    .outcome-inner { max-width: 1100px; margin: 0 auto; }
+    .outcome-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 56px; }
+    .outcome-item { background: white; padding: 36px 32px; }
+    .outcome-title { font-size: 15px; font-weight: 500; color: var(--navy); margin-bottom: 10px; }
+    .outcome-text { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.75; }
+
+    /* PRICING SIGNAL */
+    .pricing-section { padding: 100px 60px; background: white; border-top: 1px solid var(--border); }
+    .pricing-inner { max-width: 1100px; margin: 0 auto; }
+    .pricing-top { max-width: 640px; margin-bottom: 40px; }
+    .pricing-copy .section-heading { margin-bottom: 24px; }
+    .pricing-copy p { font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.85; margin-bottom: 16px; }
+    .pricing-copy p strong { color: var(--navy); font-weight: 500; }
+    .pricing-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .pricing-card { border: 1px solid var(--border); padding: 28px; background: var(--cream); }
+    .pricing-card-label { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .pricing-card-title { font-family: var(--font-display); font-size: 22px; font-weight: 500; color: var(--navy); margin-bottom: 10px; }
+    .pricing-card-text { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.7; }
+
+    /* CTA */
+    .cta-section { background: var(--navy); padding: 100px 60px; text-align: center; }
+    .cta-inner { max-width: 580px; margin: 0 auto; }
+    .cta-eyebrow { font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .cta-headline { font-family: var(--font-display); font-size: clamp(32px,4vw,50px); font-weight: 500; color: white; line-height: 1.15; margin-bottom: 22px; }
+    .cta-headline em { font-style: italic; color: var(--gold); }
+    .cta-body { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.6); margin-bottom: 40px; line-height: 1.8; }
+    .btn-gold { display: inline-block; background: var(--gold); color: var(--navy); padding: 14px 36px; font-family: var(--font-body); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.2s, transform 0.15s; }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    footer { background: #080f26; padding: 48px 60px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-logo { font-family: var(--font-display); font-size: 20px; font-weight: 500; color: white; }
+    .footer-logo span { color: var(--gold); }
+    .footer-links { display: flex; gap: 32px; list-style: none; }
+    .footer-links a { font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+
+    .fade-up { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 960px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .page-hero { padding: 120px 24px 60px; }
+      .page-hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .process-section, .outcome-section, .pricing-section, .cta-section { padding: 72px 24px; }
+      .step { grid-template-columns: 48px 1fr; gap: 24px; }
+      .step-detail { grid-column: 2; }
+      .outcome-grid { grid-template-columns: 1fr; }
+      .pricing-inner { grid-template-columns: 1fr; gap: 48px; }
+      footer { padding: 36px 24px; flex-direction: column; gap: 24px; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Praxis Behaviour<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="mailto:paige@praxisbehaviour.com?subject=Exploratory%20Call%20Request&body=Hi%20Paige%2C%0A%0AI%27d%20like%20to%20request%20an%20exploratory%20call%20to%20learn%20more%20about%20Praxis%20Behaviour.%0A%0A" class="nav-cta">Request a call</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="fade-up">
+        <p class="page-eyebrow">How it works</p>
+        <h1 class="page-headline">From your data<br>to a live platform.<br><em>In weeks, not months.</em></h1>
+      </div>
+      <p class="page-intro fade-up">Praxis is a custom build, not a generic tool. We take your specific data, structure it, and build an intelligence layer on top of it. <strong>You do not configure anything. You do not need a technical team. You get a platform that is ready to use from day one.</strong></p>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section">
+    <div class="process-inner">
+      <p class="section-eyebrow fade-up">The process</p>
+      <h2 class="section-heading fade-up">Four steps from<br><em>first call to live platform.</em></h2>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num fade-up">01</div>
+          <div class="step-left fade-up">
+            <span class="step-duration">Week 1</span>
+            <h3 class="step-title">Discovery</h3>
+            <div class="step-body">
+              <p>A 30-minute call to understand what data you have, what decisions you are trying to make, and what questions your team asks most often. You do not need to have everything organised. <strong>We work with what exists.</strong></p>
+            </div>
+          </div>
+          <div class="step-detail fade-up">
+            <p class="step-detail-label">What we cover</p>
+            <ul class="step-detail-list">
+              <li>What data assets you currently have</li>
+              <li>Which decisions are hardest to make right now</li>
+              <li>Who on your team will use the platform</li>
+              <li>What a successful platform looks like for you</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num fade-up">02</div>
+          <div class="step-left fade-up">
+            <span class="step-duration">Weeks 1 to 2</span>
+            <h3 class="step-title">Data intake<br><em>and structuring</em></h3>
+            <div class="step-body">
+              <p>We take everything you share, clean it, and structure it into a unified knowledge base. We also embed your organisational context so the system knows who your audiences are and what your team already knows. <strong>This is what makes Praxis specific to you.</strong></p>
+            </div>
+          </div>
+          <div class="step-detail fade-up">
+            <p class="step-detail-label">We can work with</p>
+            <ul class="step-detail-list">
+              <li>Survey data and crosstabs</li>
+              <li>Focus group transcripts</li>
+              <li>Sales and CRM exports</li>
+              <li>Campaign and media performance data</li>
+              <li>Segmentation studies and brand trackers</li>
+              <li>Internal reports and strategic documents</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num fade-up">03</div>
+          <div class="step-left fade-up">
+            <span class="step-duration">Weeks 2 to 4</span>
+            <h3 class="step-title">Platform build<br><em>and calibration</em></h3>
+            <div class="step-body">
+              <p>We build the query interface, cross-dataset reasoning engine, behavioural science layer, and anti-hallucination guardrails on top of your structured data. We then test against real questions your team would ask and calibrate until outputs are accurate and useful. <strong>You review before it goes live.</strong></p>
+            </div>
+          </div>
+          <div class="step-detail fade-up">
+            <p class="step-detail-label">What gets built</p>
+            <ul class="step-detail-list">
+              <li>Plain-language query interface</li>
+              <li>Cross-dataset intelligence engine</li>
+              <li>Behavioural science framework layer</li>
+              <li>Anti-hallucination guardrails</li>
+              <li>Source citation system</li>
+              <li>Interactive dashboards and filters</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num fade-up">04</div>
+          <div class="step-left fade-up">
+            <span class="step-duration">Ongoing</span>
+            <h3 class="step-title">Handover<br><em>and live access</em></h3>
+            <div class="step-body">
+              <p>We walk your team through the platform in a live session and hand it over ready to use. No technical setup, no onboarding programme. Anyone who can type a question can use it from day one. <strong>As your data grows, the platform grows with it.</strong></p>
+            </div>
+          </div>
+          <div class="step-detail fade-up">
+            <p class="step-detail-label">After handover</p>
+            <ul class="step-detail-list">
+              <li>Live platform access for your full team</li>
+              <li>Monthly subscription covers hosting and maintenance</li>
+              <li>New data sources can be added at any time</li>
+              <li>Platform updates included</li>
+              <li>Direct support from Praxis Behaviour.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING SIGNAL -->
+  <section class="pricing-section">
+    <div class="pricing-inner">
+      <div class="pricing-top">
+        <div class="pricing-copy fade-up">
+          <p class="section-eyebrow">Investment</p>
+          <h2 class="section-heading">One build.<br><em>Ongoing intelligence.</em></h2>
+          <p>A one-time build fee covers discovery, data intake, platform construction, and handover. A monthly subscription covers hosting, maintenance, and ongoing support. Pricing is scoped to your data. <strong>Every build starts with an exploratory call</strong> before any commitment is made.</p>
+        </div>
+      </div>
+      <div class="pricing-cards fade-up">
+        <div class="pricing-card">
+          <p class="pricing-card-label">One-time</p>
+          <h3 class="pricing-card-title">Platform build</h3>
+          <p class="pricing-card-text">Covers full discovery, data intake and structuring, intelligence layer build, calibration, and team handover. Scoped to your specific data and requirements.</p>
+        </div>
+        <div class="pricing-card">
+          <p class="pricing-card-label">Monthly</p>
+          <h3 class="pricing-card-title">Subscription</h3>
+          <p class="pricing-card-text">Live platform access for your full team. Hosting, maintenance, and updates included. New data sources can be added at any time.</p>
+        </div>
+        <div class="pricing-card">
+          <p class="pricing-card-label">Optional</p>
+          <h3 class="pricing-card-title">Live data pipelines</h3>
+          <p class="pricing-card-text">Connect live data sources such as HubSpot, SharePoint, or internal dashboards so your platform stays current as your data updates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-inner fade-up">
+      <p class="cta-eyebrow">Get started</p>
+      <h2 class="cta-headline">Start with a<br><em>30-minute call.</em></h2>
+      <p class="cta-body">We will look at what you have, walk you through what Praxis can do with it, and give you a clear sense of what a build would involve. No commitment required.</p>
+      <a href="mailto:paige@praxisbehaviour.com?subject=Exploratory%20Call%20Request&body=Hi%20Paige%2C%0A%0AI%27d%20like%20to%20request%20an%20exploratory%20call%20to%20learn%20more%20about%20Praxis%20Behaviour.%0A%0A" class="btn-gold">Request an exploratory call</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Praxis Behaviour<span>.</span></div>
+    <ul class="footer-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2025 Praxis Behaviour.</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 70);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
