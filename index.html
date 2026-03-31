@@ -28,46 +28,31 @@
     .nav-cta { opacity: 1 !important; color: var(--cream) !important; background: var(--navy); padding: 10px 22px; border-radius: 2px; transition: background 0.2s !important; }
     .nav-cta:hover { background: var(--navy-light) !important; }
 
-    .hero { min-height: 100vh; display: flex; align-items: center; padding: 140px 60px 100px; }
-    .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center; }
+    /* HERO — centered, full viewport */
+    .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 140px 60px 100px; text-align: center; }
+    .hero-inner { max-width: 760px; margin: 0 auto; width: 100%; }
     .hero-eyebrow { font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 22px; }
-    .hero-headline { font-family: var(--font-display); font-size: clamp(44px,5vw,68px); font-weight: 500; line-height: 1.08; color: var(--navy); margin-bottom: 30px; }
+    .hero-headline { font-family: var(--font-display); font-size: clamp(52px,6vw,82px); font-weight: 500; line-height: 1.05; color: var(--navy); margin-bottom: 32px; }
     .hero-headline em { font-style: italic; color: var(--gold); }
-    .hero-detail { font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.85; max-width: 480px; margin-bottom: 44px; padding-top: 18px; border-top: 1px solid var(--border); }
+    .hero-detail { font-size: 16px; font-weight: 300; color: var(--muted); line-height: 1.85; margin-bottom: 20px; padding-top: 24px; border-top: 1px solid var(--border); }
+    .hero-detail-2 { font-size: 16px; font-weight: 300; color: var(--muted); line-height: 1.85; margin-bottom: 44px; }
     .hero-detail em { font-style: italic; color: var(--navy); font-weight: 400; }
-    .hero-actions { display: flex; gap: 20px; align-items: center; }
+    .hero-actions { display: flex; gap: 20px; align-items: center; justify-content: center; }
     .btn-primary { display: inline-block; background: var(--navy); color: var(--cream); padding: 14px 32px; font-family: var(--font-body); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.2s, transform 0.15s; }
     .btn-primary:hover { background: var(--navy-light); transform: translateY(-1px); }
     .btn-secondary { display: inline-block; color: var(--navy); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 2px; transition: color 0.2s; }
     .btn-secondary:hover { color: var(--gold); }
 
-    .hero-card { background: var(--navy); border-radius: 4px; padding: 36px; color: white; position: relative; overflow: hidden; }
-    .hero-card::after { content: ''; position: absolute; top: -60px; right: -60px; width: 220px; height: 220px; background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%); pointer-events: none; }
-    .hero-card-label { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
-    .hero-card-query { font-family: var(--font-display); font-size: 17px; font-style: italic; color: rgba(255,255,255,0.9); line-height: 1.55; margin-bottom: 24px; padding-bottom: 22px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .hero-card-response { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 22px; }
-    .hero-card-sources { display: flex; flex-wrap: wrap; gap: 8px; }
     .tag { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(201,168,76,0.3); padding: 4px 10px; border-radius: 2px; }
 
-    .section { padding: 100px 60px; }
-    .section-inner { max-width: 1100px; margin: 0 auto; }
     .section-eyebrow { font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
     .section-heading { font-family: var(--font-display); font-size: clamp(36px,4vw,56px); font-weight: 500; color: var(--navy); line-height: 1.1; }
     .section-heading em { font-style: italic; }
 
-    .problem-section { padding: 100px 60px; border-top: 1px solid var(--border); }
-    .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 56px; align-items: start; }
-    .problem-copy p { font-size: 16px; font-weight: 300; color: var(--muted); line-height: 1.85; margin-bottom: 18px; }
-    .problem-copy p strong { color: var(--navy); font-weight: 500; }
-    .problem-points { display: flex; flex-direction: column; gap: 20px; }
-    .problem-point { padding: 24px 28px; border: 1px solid var(--border); border-left: 3px solid var(--gold); background: white; }
-    .problem-point-title { font-size: 14px; font-weight: 500; color: var(--navy); margin-bottom: 6px; }
-    .problem-point-text { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.7; }
-
+    /* WHAT WE BUILD */
     .build-section { background: white; padding: 100px 60px; border-top: 1px solid var(--border); }
     .build-inner { max-width: 1100px; margin: 0 auto; }
     .build-section .section-heading { color: var(--navy); }
-    .build-section .section-eyebrow { color: var(--gold); }
     .build-intro { font-size: 16px; font-weight: 300; color: var(--muted); line-height: 1.8; max-width: 600px; margin-top: 20px; margin-bottom: 60px; }
     .build-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
     .build-item { background: white; padding: 40px 32px; transition: background 0.2s; }
@@ -76,24 +61,12 @@
     .build-title { font-size: 15px; font-weight: 500; color: var(--navy); margin-bottom: 10px; }
     .build-text { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.75; }
 
-    .diff-section { padding: 100px 60px; background: white; }
-    .diff-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-    .diff-left .section-heading { margin-bottom: 28px; }
-    .diff-left p { font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.85; margin-bottom: 16px; }
-    .diff-left p strong { color: var(--navy); font-weight: 500; }
-    .diff-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-    .diff-table th { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding: 10px 14px; border-bottom: 1px solid var(--border); text-align: left; }
-    .diff-table th:last-child { color: var(--navy); }
-    .diff-table td { padding: 14px; border-bottom: 1px solid var(--border); vertical-align: top; font-weight: 300; color: var(--muted); line-height: 1.5; }
-    .diff-table td:first-child { font-weight: 500; color: var(--navy); font-size: 12px; letter-spacing: 0.02em; width: 28%; }
-    .diff-table td:last-child { color: var(--navy); font-weight: 400; }
-    .diff-table tr:last-child td { border-bottom: none; }
-
+    /* WHO IT'S FOR */
     .icp-section { padding: 100px 60px; border-top: 1px solid var(--border); }
+    .icp-section .section-inner { max-width: 1100px; margin: 0 auto; }
     .icp-layout { display: flex; flex-direction: column; gap: 40px; margin-top: 48px; }
     .icp-copy p { font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.85; margin-bottom: 0; max-width: 640px; }
     .icp-copy p strong { color: var(--navy); font-weight: 500; }
-    
     .icp-checklist { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .icp-item { display: flex; gap: 14px; align-items: flex-start; padding: 20px; border: 1px solid var(--border); background: var(--cream); transition: border-color 0.2s, background 0.2s; }
     .icp-item:hover { border-color: rgba(201,168,76,0.4); background: white; }
@@ -101,6 +74,27 @@
     .icp-item-text { font-size: 14px; font-weight: 500; color: var(--navy); line-height: 1.5; }
     .icp-item-text span { display: block; font-size: 13px; font-weight: 300; color: var(--muted); margin-top: 5px; line-height: 1.6; }
 
+    /* VS GENERAL AI — full width table layout */
+    .diff-section { padding: 100px 60px; background: white; border-top: 1px solid var(--border); }
+    .diff-inner { max-width: 1100px; margin: 0 auto; }
+    .diff-top { margin-bottom: 48px; }
+    .diff-top .section-heading { margin-bottom: 20px; }
+    .diff-top p { font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.85; max-width: 640px; margin-bottom: 12px; }
+    .diff-top p strong { color: var(--navy); font-weight: 500; }
+    .diff-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .diff-table thead tr { background: var(--navy); }
+    .diff-table th { padding: 16px 20px; text-align: left; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+    .diff-table th:first-child { width: 22%; }
+    .diff-table th:nth-child(2) { width: 39%; }
+    .diff-table th:nth-child(3) { color: var(--gold); width: 39%; }
+    .diff-table td { padding: 18px 20px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
+    .diff-table td:first-child { font-weight: 500; color: var(--navy); font-size: 13px; }
+    .diff-table td:nth-child(2) { font-weight: 300; color: var(--muted); }
+    .diff-table td:nth-child(3) { font-weight: 400; color: var(--navy); }
+    .diff-table tr:last-child td { border-bottom: none; }
+    .diff-table tbody tr:hover { background: var(--cream); }
+
+    /* SECURITY */
     .security-section { padding: 72px 60px; background: var(--cream); border-top: 1px solid var(--border); }
     .security-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: center; }
     .security-heading { font-family: var(--font-display); font-size: clamp(28px,3vw,40px); font-weight: 500; color: var(--navy); line-height: 1.15; margin-top: 12px; }
@@ -110,6 +104,8 @@
     .security-icon { width: 18px; height: 18px; flex-shrink: 0; color: var(--gold); margin-top: 2px; }
     .security-item-title { font-size: 14px; font-weight: 500; color: var(--navy); margin-bottom: 4px; }
     .security-item-text { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.6; }
+
+    /* CTA */
     .cta-section { background: var(--navy); padding: 100px 60px; text-align: center; }
     .cta-inner { max-width: 620px; margin: 0 auto; }
     .cta-section .section-eyebrow { color: var(--gold); }
@@ -134,11 +130,11 @@
       nav { padding: 0 24px; }
       .nav-links { display: none; }
       .hero { padding: 110px 24px 72px; }
-      .hero-inner, .problem-grid, .diff-inner, .icp-layout { grid-template-columns: 1fr; gap: 40px; }
-      .problem-section, .diff-section, .icp-section, .build-section, .cta-section, .security-section { padding: 72px 24px; }
+      .build-section, .icp-section, .diff-section, .security-section, .cta-section { padding: 72px 24px; }
+      .build-grid, .icp-checklist { grid-template-columns: 1fr; }
       .security-inner { grid-template-columns: 1fr; gap: 36px; }
       .security-items { grid-template-columns: 1fr; }
-      .build-grid { grid-template-columns: 1fr; }
+      .diff-table { font-size: 13px; }
       footer { padding: 36px 24px; flex-direction: column; gap: 24px; text-align: center; }
       .footer-links { flex-wrap: wrap; justify-content: center; }
     }
@@ -150,36 +146,20 @@
     <a href="index.html" class="nav-logo">Praxis Behaviour<span>.</span></a>
     <ul class="nav-links">
       <li><a href="how-it-works.html">How it works</a></li>
-      
-      <li><a href="contact.html">Contact</a></li>
       <li><a href="mailto:paige@praxisbehaviour.com?subject=Exploratory%20Call%20Request&body=Hi%20Paige%2C%0A%0AI%27d%20like%20to%20request%20an%20exploratory%20call%20to%20learn%20more%20about%20Praxis%20Behaviour.%0A%0A" class="nav-cta">Request a call</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO — centered -->
   <section class="hero">
-    <div class="hero-inner">
-      <div>
-        <p class="hero-eyebrow">Research Intelligence Platform</p>
-        <h1 class="hero-headline">Your research,<br><em>finally talking</em><br>to itself.</h1>
-        <p class="hero-detail">We take everything your organisation knows about its customers (surveys, focus groups, sales data, campaign performance, segmentation studies) and build it into a single intelligence layer.<br><br>The platform reads all of it simultaneously, surfaces patterns that only exist across sources, and applies behavioural science frameworks to explain <em>why</em> your audience behaves the way they do, not just what the numbers show. Any team member can ask a question and get a specific, cited answer. No analyst needed. No waiting on a brief.</p>
-        <div class="hero-actions">
-          <a href="mailto:paige@praxisbehaviour.com?subject=Exploratory%20Call%20Request&body=Hi%20Paige%2C%0A%0AI%27d%20like%20to%20request%20an%20exploratory%20call%20to%20learn%20more%20about%20Praxis%20Behaviour.%0A%0A" class="btn-primary">Request an exploratory call</a>
-          <a href="how-it-works.html" class="btn-secondary">See how it works</a>
-        </div>
-      </div>
-      <div>
-        <div class="hero-card">
-          <p class="hero-card-label">Live query example</p>
-          <p class="hero-card-query">"Our high-intent segment isn't converting. Why, and what should we do about it?"</p>
-          <p class="hero-card-response">Reading your segmentation study, campaign data, and focus group transcripts simultaneously... This segment shows strong stated intent but high temporal discounting: short-term friction (price, effort, timing) consistently outweighs future benefit in their decision-making. Your campaign data confirms the pattern: urgency messaging underperforms by 34% with this group. Recommendation: reduce friction at point of decision, not earlier in the funnel.</p>
-          <div class="hero-card-sources">
-            <span class="tag">Segmentation study</span>
-            <span class="tag">Campaign data</span>
-            <span class="tag">Focus groups</span>
-            <span class="tag">Behavioural layer</span>
-          </div>
-        </div>
+    <div class="hero-inner fade-up">
+      <p class="hero-eyebrow">Research Intelligence Platform</p>
+      <h1 class="hero-headline">Your research,<br><em>finally talking</em><br>to itself.</h1>
+      <p class="hero-detail">We take everything your organisation knows about its customers (surveys, focus groups, sales data, campaign performance, segmentation studies) and build it into a single intelligence layer.</p>
+      <p class="hero-detail-2">The platform reads all of it simultaneously, surfaces patterns that only exist across sources, and applies behavioural science frameworks to explain <em>why</em> your audience behaves the way they do — not just what the numbers show.</p>
+      <div class="hero-actions">
+        <a href="mailto:paige@praxisbehaviour.com?subject=Exploratory%20Call%20Request&body=Hi%20Paige%2C%0A%0AI%27d%20like%20to%20request%20an%20exploratory%20call%20to%20learn%20more%20about%20Praxis%20Behaviour.%0A%0A" class="btn-primary">Request an exploratory call</a>
+        <a href="how-it-works.html" class="btn-secondary">See how it works</a>
       </div>
     </div>
   </section>
@@ -192,37 +172,31 @@
       <p class="build-intro fade-up">We take your existing research and build it into infrastructure. One platform. All your data. Anyone on the team can use it.</p>
       <div class="build-grid">
         <div class="build-item fade-up">
-          
           <div class="build-num">01</div>
           <h3 class="build-title">Unification</h3>
           <p class="build-text">All of your research (surveys, focus groups, segmentation studies, sales data, campaign results) structured and centralised in one place.</p>
         </div>
         <div class="build-item fade-up">
-          
           <div class="build-num">02</div>
           <h3 class="build-title">Plain-language query layer</h3>
-          <p class="build-text">Any team member can ask a question in plain language and get a specific, cited answer. Ask follow-up questions, run live pivots, and drill into segments on the fly. No analyst required. No waiting on a brief.</p>
+          <p class="build-text">Any team member can ask a question in plain language and get a specific, cited answer. Ask follow-up questions, run live pivots, and drill into segments on the fly. No analyst required.</p>
         </div>
         <div class="build-item fade-up">
-          
           <div class="build-num">03</div>
           <h3 class="build-title">Cross-dataset intelligence</h3>
           <p class="build-text">The system reads all your data simultaneously, surfacing patterns that only exist when everything is read at once. Every new data source makes every previous one more useful.</p>
         </div>
         <div class="build-item fade-up">
-          
           <div class="build-num">04</div>
           <h3 class="build-title">Interactive dashboards</h3>
           <p class="build-text">Your data becomes explorable through filters and dynamic views. Anyone on the team can interrogate what you know, not just the people who commissioned the study.</p>
         </div>
         <div class="build-item fade-up">
-          
           <div class="build-num">05</div>
           <h3 class="build-title">Behavioural science extension</h3>
           <p class="build-text">Using behavioural science frameworks, the system extends your findings into new scenarios and decisions, grounded in how your customers actually think and behave.</p>
         </div>
         <div class="build-item fade-up">
-          
           <div class="build-num">06</div>
           <h3 class="build-title">Built on your data only</h3>
           <p class="build-text">Generic AI is trained on the internet. Praxis is trained on your customers, your context, and your research. Every response is grounded in what your organisation actually knows.</p>
@@ -274,12 +248,11 @@
   <!-- VS GENERAL AI -->
   <section class="diff-section">
     <div class="diff-inner">
-      <div class="diff-left fade-up">
+      <div class="diff-top fade-up">
         <p class="section-eyebrow">Why not just use ChatGPT?</p>
         <h2 class="section-heading">General AI answers<br><em>generic questions.</em></h2>
         <p>A general AI tool responds with the most plausible answer based on what exists on the internet. Praxis responds with the most accurate answer based on what your organisation actually knows.</p>
         <p>The difference matters most when you are making a real decision. <strong>Your data is specific. Your answers should be too.</strong></p>
-        <p>Praxis is also built with hard rules against fabrication. It will not invent statistics, attribute findings to sources it cannot verify, or generalise beyond what your data says. The same question asked twice produces the same grounded answer.</p>
       </div>
       <div class="fade-up">
         <table class="diff-table">
@@ -304,17 +277,17 @@
             <tr>
               <td>Hallucination risk</td>
               <td>Present. No guardrails on your specific data.</td>
-              <td>Hard rules against fabrication; unverified claims flagged at runtime</td>
+              <td>Hard rules against fabrication. Unverified claims flagged at runtime.</td>
             </tr>
             <tr>
               <td>Output consistency</td>
               <td>Varies by prompt phrasing</td>
-              <td>Consistent. Same frameworks, same sources, every time</td>
+              <td>Consistent. Same frameworks, same sources, every time.</td>
             </tr>
             <tr>
               <td>Organisational context</td>
               <td>None</td>
-              <td>Embedded. Trained on your audiences, your data, your history</td>
+              <td>Embedded. Trained on your audiences, your data, your history.</td>
             </tr>
           </tbody>
         </table>
@@ -372,14 +345,10 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-logo">Praxis Behaviour<span>.</span></div>
     <ul class="footer-links">
       <li><a href="how-it-works.html">How it works</a></li>
-      
-      
-      <li><a href="contact.html">Contact</a></li>
     </ul>
     <p class="footer-copy">&copy; 2025 Praxis Behaviour.</p>
   </footer>
